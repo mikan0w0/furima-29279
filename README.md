@@ -1,24 +1,62 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column     | Type   | Options     |
+| ---------- | ------ | ----------- |
+| name       | string | null: false |
+| email      | string | null: false |
+| password   | string | null: false |
+| first_name | string | null: false |
+| family_name| string | null: false |
+| first_kana | string | null: false |
+| family_kana| string | null: false |
+| birth_date | date   | null: false |
 
-* System dependencies
+### Association
+- has_many :items
+- has_many :item_transactions
 
-* Configuration
 
-* Database creation
+## items テーブル
 
-* Database initialization
+| Column      | Type       | Options     |
+| ----------- | ---------- | ----------- |
+| user        | references | null: false |
+| name        | string     | null: false |
+| info        | text       | null: false |
+| categories  | integer    | null: false |
+| state       | integer    | null: false |
+| ship_charge | integer    | null: false |
+| ship_from   | integer    | null: false |
+| ship_takes  | integer    | null: false |
+| price       | integer    | null: false |
+### Association
+- has_one :user
+- has_one :item_transaction
 
-* How to run the test suite
+## item_transactionsテーブル
 
-* Services (job queues, cache servers, search engines, etc.)
+| Column  | Type       | Options                        |
+| --------| ---------- | ------------------------------ |
+| item    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+### Association
+- belongs_to :item
+- belongs_to :user
+- has_one :ship_to
 
-* Deployment instructions
+## ship_to テーブル
 
-* ...
+| Column         | Type       | Options                        |
+| -------------- | ---------- | ------------------------------ |
+|item_transaction| references | null: false, foreign_key: true |
+| post_code      | string     | null: false                    |
+| prefecture     | integer    | null: false                    |
+| city           | string     | null: false                    |
+| address        | string     | null: false                    |
+| building       | string     |                                |
+| phone          | string     | null: false                    |   
+### Association
+- belongs_to :item_transaction
