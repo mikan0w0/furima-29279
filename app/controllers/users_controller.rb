@@ -3,9 +3,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      redirect_to new_user_registration_path
+      redirect_to root_path
     else
-      render 'new(@user)'
+      render 'new'
     end
   end
   def update
