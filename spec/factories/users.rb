@@ -8,5 +8,6 @@ FactoryBot.define do
     family_name           {"太朗"}
     first_kana            {"ヤマダ"}
     family_kana           {"タロウ"}
+    birth_date            {Faker::Date.birthday(min_age: 18, max_age: 65)}
   end
 end
