@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   before_action :move_to_index, except: [:index, :show, :search]
   # def create
   #   @tweet = Tweet.new(tweet_params)
@@ -20,5 +21,6 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
+  def index
   end
 end
