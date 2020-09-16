@@ -14,7 +14,10 @@ class ItemsController < ApplicationController
     end
   end
   def index
-    @items = Item.all()
+    @items = Item.all.order(id: "DESC")
+  end
+  def tax
+    render json: {}
   end
 
   private
