@@ -16,9 +16,6 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all.order(id: "DESC")
   end
-  def tax
-    render json: {}
-  end
 
   private
 
