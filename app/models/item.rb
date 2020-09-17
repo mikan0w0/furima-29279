@@ -11,8 +11,12 @@ class Item < ApplicationRecord
   belongs_to_active_hash :take
 
   validates :image, presence: true
-  validates :name, :info, :category, :state, :charge, :from, :take, :price, presence: true
-  validates :category_id, :state_id, :chage_id, :prefecture_id, :take_id, numericality: { other_than: 1 } 
-  validates :price, numericality: { only_integer: true, greater_than:300, less_than:9999999 }
-    
+  validates :name, :info, :price, presence: true
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :state_id
+    validates :charge_id
+    validates :takes_id
+  end
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_: 1000000 } 
 end
