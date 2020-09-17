@@ -16,6 +16,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :state_id
     validates :charge_id
+    validates :prefecture_id
     validates :takes_id
   end
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_: 1000000 } 
