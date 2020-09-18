@@ -18,5 +18,5 @@ class Item < ApplicationRecord
     validates :prefecture_id
     validates :takes_id
   end
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_: 1000000 } 
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than: 1000000 } 
 end
