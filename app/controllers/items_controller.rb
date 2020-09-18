@@ -12,12 +12,8 @@ class ItemsController < ApplicationController
       render 'new'
     end
   end
-  def index
-    @items = Item.all
-  end
 
   private
-
 
   def item_params
     params.require(:item).permit(:name, :info, :image, :price, :category_id, :state_id, :charge_id, :prefecture_id, :takes_id).merge(user_id: current_user.id)
