@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
   def new
-    @item = Item.new
+    @items = Item.new
   end
   def create
     @item = Item.new(item_params)
