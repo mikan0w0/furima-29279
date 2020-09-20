@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_14_123900) do
     t.integer "state_id", null: false
     t.integer "charge_id", null: false
     t.integer "prefecture_id", null: false
-    t.integer "takes_id", null: false
+    t.integer "take_id", null: false
     t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
