@@ -1,0 +1,2 @@
+class ShipTo < ApplicationRecord
+end

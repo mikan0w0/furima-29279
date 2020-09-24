@@ -36,7 +36,7 @@
 - has_one :user
 - has_one :order
 
-## orderテーブル
+## orders テーブル
 
 | Column  | Type       | Options                        |
 | --------| ---------- | ------------------------------ |
@@ -47,11 +47,11 @@
 - belongs_to :user
 - has_one :ship_to
 
-## ship_to テーブル
+## ship_tos テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-|item_transaction| references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 | post_code      | string     | null: false                    |
 | prefecture     | integer    | null: false                    |
 | city           | string     | null: false                    |
