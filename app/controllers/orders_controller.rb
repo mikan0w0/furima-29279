@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :move_to
+  # before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
     @item = Item.find(params[:item_id])
@@ -18,6 +20,19 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def move_to
+    @item = Item.find(params[:item_id])
+    if user_signed_in? 
+      if @item.user_id == current_user.id
+        redirect_to root_path
+      else
+        return
+      end
+    else
+      redirect_to user_session_path
+    end
+  end
 
   def order_params
     params.permit(:token, :item_id, :post_code, :prefecture_id, :city, :address, :building, :phone).merge(user_id: current_user.id)
