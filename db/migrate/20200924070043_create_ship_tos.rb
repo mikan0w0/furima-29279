@@ -6,7 +6,7 @@ class CreateShipTos < ActiveRecord::Migration[6.0]
       t.string  :city,           default: ""
       t.string  :address,        default: ""
       t.string  :building,       default: ""
-      t.integer :phone,          default: ""
+      t.string :phone,          default: ""
       t.references :order,                     null: false,  foreign_key: true
       t.timestamps
     end

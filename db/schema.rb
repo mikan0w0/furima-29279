@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2020_09_24_070043) do
   end
 
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "item_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["item_id"], name: "index_orders_on_item_id"
@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(version: 2020_09_24_070043) do
     t.string "city", default: ""
     t.string "address", default: ""
     t.string "building", default: ""
-    t.integer "phone"
+    t.string "phone", default: ""
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
