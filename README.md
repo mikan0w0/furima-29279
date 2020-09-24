@@ -16,7 +16,7 @@
 
 ### Association
 - has_many :items
-- has_many :item_transactions
+- has_many :order
 
 
 ## items テーブル
@@ -34,9 +34,9 @@
 | price       | integer    | null: false |
 ### Association
 - has_one :user
-- has_one :item_transaction
+- has_one :order
 
-## item_transactionsテーブル
+## orderテーブル
 
 | Column  | Type       | Options                        |
 | --------| ---------- | ------------------------------ |
@@ -59,4 +59,4 @@
 | building       | string     |                                |
 | phone          | string     | null: false                    |   
 ### Association
-- belongs_to :item_transaction
+- belongs_to :order
