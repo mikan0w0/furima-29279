@@ -57,12 +57,12 @@ RSpec.describe OrderShipTo, type: :model do
         @order_ship_to.valid?
         expect(@order_ship_to.errors.full_messages).to include("Phone is invalid")
       end
-      it "phoneは11桁でないと購入できない" do
+      it "phoneは9桁以下だと購入できない" do
         @order_ship_to.phone = 1234567
         @order_ship_to.valid?
         expect(@order_ship_to.errors.full_messages).to include("Phone is invalid")
       end
-      it "phoneは11桁でないと購入できない" do
+      it "phoneは12桁以上だと購入できない" do
         @order_ship_to.phone = 12345678
         @order_ship_to.valid?
         expect(@order_ship_to.errors.full_messages).to include("Phone is invalid")
