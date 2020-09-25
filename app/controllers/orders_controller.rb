@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
   end
   def move_to
     if user_signed_in? 
-      if @item.user_id == current_user.id || Order.find_by(item_id: @item.id)
+      if @item.user_id == current_user.id || Order.find_by(item_id: @item.id)#もしくは@item.order
         redirect_to root_path
       end
     else
