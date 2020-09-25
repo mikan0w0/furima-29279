@@ -16,47 +16,47 @@
 
 ### Association
 - has_many :items
-- has_many :item_transactions
+- has_many :order
 
 
 ## items テーブル
 
 | Column      | Type       | Options     |
 | ----------- | ---------- | ----------- |
-| user        | references | null: false |
+| user_id     | references | null: false |
 | name        | string     | null: false |
 | info        | text       | null: false |
 | categories  | integer    | null: false |
 | state       | integer    | null: false |
-| ship_charge | integer    | null: false |
-| ship_from   | integer    | null: false |
-| ship_takes  | integer    | null: false |
+| charge      | integer    | null: false |
+| from        | integer    | null: false |
+| takes       | integer    | null: false |
 | price       | integer    | null: false |
 ### Association
 - has_one :user
-- has_one :item_transaction
+- has_one :order
 
-## item_transactionsテーブル
+## orders テーブル
 
 | Column  | Type       | Options                        |
 | --------| ---------- | ------------------------------ |
-| item    | references | null: false, foreign_key: true |
-| user    | references | null: false, foreign_key: true |
+| item_id | references | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :item
 - belongs_to :user
 - has_one :ship_to
 
-## ship_to テーブル
+## ship_tos テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-|item_transaction| references | null: false, foreign_key: true |
+| order_id       | references | null: false, foreign_key: true |
 | post_code      | string     | null: false                    |
-| prefecture     | integer    | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | city           | string     | null: false                    |
 | address        | string     | null: false                    |
 | building       | string     |                                |
-| phone          | string     | null: false                    |   
+| phone          | string     | null: false                    |
 ### Association
-- belongs_to :item_transaction
+- belongs_to :order

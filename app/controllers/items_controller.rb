@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
   end
   def index
     @items = Item.all.order("created_at DESC")
+    @order = Order.all
   end
   def update
     if @item.update(item_params)
