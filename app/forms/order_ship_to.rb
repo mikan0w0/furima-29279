@@ -10,7 +10,7 @@ class OrderShipTo
     validates :address
     validates :phone, format: { with: /\A\d{10,11}\z/ } 
   end
-  validates :prefecture_id, numericality: { other_than: 1, message: "Prefecture Select" }
+  validates :prefecture_id, numericality: { other_than: 1 }
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)

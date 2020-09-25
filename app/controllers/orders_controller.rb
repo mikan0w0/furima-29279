@@ -1,14 +1,11 @@
 class OrdersController < ApplicationController
+  before_action :set_item, only: [:index, :create, :move_to]
   before_action :move_to
-  # before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
-    @item = Item.find(params[:item_id])
     @order = Order.new
   end
-
   def create
-    @item = Item.find(params[:item_id])
     @order = OrderShipTo.new(order_params)
     if @order.valid?
       pay_item
@@ -21,8 +18,10 @@ class OrdersController < ApplicationController
 
   private
 
-  def move_to
+  def set_item
     @item = Item.find(params[:item_id])
+  end
+  def move_to
     if user_signed_in? 
       if @item.user_id == current_user.id || Order.find_by(item_id: @item.id)
         redirect_to root_path
@@ -31,11 +30,9 @@ class OrdersController < ApplicationController
       redirect_to user_session_path
     end
   end
-
   def order_params
     params.permit(:token, :item_id, :post_code, :prefecture_id, :city, :address, :building, :phone).merge(user_id: current_user.id)
   end
-
   def pay_item
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
