@@ -24,10 +24,8 @@ class OrdersController < ApplicationController
   def move_to
     @item = Item.find(params[:item_id])
     if user_signed_in? 
-      if @item.user_id == current_user.id
+      if @item.user_id == current_user.id || Order.find_by(item_id: @item.id)
         redirect_to root_path
-      else
-        return
       end
     else
       redirect_to user_session_path
