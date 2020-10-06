@@ -16,12 +16,12 @@
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-        <%= f.file_field :images, name: 'item[images][]', id:"item-image" %>
-        <div id="image-list">
-          <% @item.images.each do |image| %>
-            <%= image_tag image, class: 'images' %> <%#if image.attached?%>
-          <% end %>
-        </div>
+        <%= f.file_field :images, multiple: false, name: 'item[images][]', id:"item-image" %>
+          <div class="image-list" id="image-list">
+            <% @item.images.each do |image| %>
+              <%= image_tag image, class: 'images' %> <%#if image.attached?%>
+            <% end %>
+          </div>
       </div>
     </div>
     <%# /出品画像 %>

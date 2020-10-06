@@ -85,7 +85,19 @@
   min-width: 250px;
   justify-content: space-between;
 }
-
+.image-list {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+/* .images {
+  width: 200px;
+  height: 200px;
+} */
+.gazou {
+  width: 200px;
+  height: 200px;
+}
 .click-upload>p {
   margin-bottom: 15px;
 }

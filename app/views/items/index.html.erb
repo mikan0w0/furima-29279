@@ -131,9 +131,7 @@
           <%= link_to item_path(item) do %>
           <div class='item-img-content'>
 
-            <% item.images.each do |image| %>
-              <%= image_tag image, class: "item-imgs" %>
-            <% end %>
+            <%= image_tag item.images[0], class: "item-img"%>
 
             <% @order.each do |order| %>
               <% if item.id == order.item_id %>
