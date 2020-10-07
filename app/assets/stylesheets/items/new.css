@@ -74,7 +74,6 @@
 
 /* 出品画像 */
 .img-upload {
-  display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 2vh 0;
@@ -90,10 +89,10 @@
   justify-content: space-around;
   flex-direction: row;
 }
-/* .images {
+.images {
   width: 200px;
   height: 200px;
-} */
+}
 .gazou {
   width: 200px;
   height: 200px;

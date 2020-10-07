@@ -18,6 +18,9 @@
   flex-direction: column;
   align-items: center;
 }
+.item-img-content {
+  text-align: -webkit-center
+}    
 
 .item-box>.name {
   text-align: center;

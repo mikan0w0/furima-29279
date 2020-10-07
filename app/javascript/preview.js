@@ -16,10 +16,6 @@ if (document.URL.match( /new/) || document.URL.match( /edit/)) {
       inputHTML.setAttribute('name', 'item[images][]');
       inputHTML.setAttribute('type', 'file'); //属性の設定
 
-      if (document.getElementById("item-image")) {
-        document.getElementById("item-image").setAttribute('type', 'hidden');
-      }
-
       //あるべき要素に子要素としてHTMlコード追加（表示）
       const ImageList = document.getElementById("image-list");
       imageElement.appendChild(bolbImage); //イメージファイルのURL
@@ -29,7 +25,7 @@ if (document.URL.match( /new/) || document.URL.match( /edit/)) {
       inputHTML.addEventListener('change', (e) => {
         file = e.target.files[0];
         blob = window.URL.createObjectURL(file);
-        inputHTML.setAttribute('type', 'hidden')
+        inputHTML.style.display = "none";
         createImageHTML(blob)
       })
     }
@@ -38,8 +34,8 @@ if (document.URL.match( /new/) || document.URL.match( /edit/)) {
 
 
       const file = e.target.files[0];
-      const blob = window.URL.createObjectURL(file); //fileのURLを作成
-
+      const blob = window.URL.createObjectURL(file); //fileのURLを作る
+      document.getElementById("item-image").style.display = "none";
       createImageHTML(blob);
     });
   });
