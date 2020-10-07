@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
       @item.save
       redirect_to root_path
     else
-      render 'new'
+      redirect_to new_item_path #imageデータが取れないためパス指定
     end
   end
   def index

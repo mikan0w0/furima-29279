@@ -1,5 +1,5 @@
 
-if (document.URL.match( /new/) || document.URL.match( /edit/)) {
+// if (document.URL.match( /new/) || document.URL.match( /edit/)) {
   function tax(){
     const priceinput = document.getElementById("item-price");
     const taxprice = document.getElementById("add-tax-price");
@@ -14,4 +14,4 @@ if (document.URL.match( /new/) || document.URL.match( /edit/)) {
     });
   };
   window.addEventListener("load", tax);
-};
+// };
