@@ -18,10 +18,12 @@ app/assets/stylesheets/items/new.css %>
         <span class="indispensable">必須</span>
       </div>
       <div class="click-upload">
-        <div id="image-list">
-        <%= image_tag @item.image %>
+        <%# <%= f.file_field :images, multiple: true, name: 'item[images][]', id:"item-image" %>
+        <div class="image-list" id="image-list">
+          <% @item.images.each do |image| %>
+            <%= image_tag image, class: 'images' %> <%#if image.attached?%>
+          <% end %>
         </div>
-        <%= f.file_field :image, id: "item-image" %>
       </div>
     </div>
     <%# /出品画像 %>
