@@ -23,19 +23,19 @@ if (document.URL.match( /new/) || document.URL.match( /edit/)) {
       ImageList.appendChild(imageElement); //親になるエレメントに
 
       inputHTML.addEventListener('change', (e) => {
+        
         file = e.target.files[0];
         blob = window.URL.createObjectURL(file);
-        inputHTML.style.display = "none";
+        inputHTML.style.display = "none"; //ボタンを隠す
         createImageHTML(blob)
       })
     }
 
     document.getElementById("item-image").addEventListener('change', function(e){
 
-
       const file = e.target.files[0];
       const blob = window.URL.createObjectURL(file); //fileのURLを作る
-      document.getElementById("item-image").style.display = "none";
+      document.getElementById("item-image").style.display = "none"; //ボタンを隠す
       createImageHTML(blob);
     });
   });
